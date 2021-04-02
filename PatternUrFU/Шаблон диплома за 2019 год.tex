@@ -1,0 +1,174 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=30mm,right=15mm,
+    top=20mm,bottom=20mm]{geometry} % разметка страницы
+\parindent=1cm % абзацный отступ
+
+%\usepackage{ragged2e}
+%\justifying % выравнивание по ширине
+\usepackage{multicol}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst} % красная строка после заголовков
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+
+\usepackage{setspace}
+\onehalfspacing % полуторный межстрочный интервал
+
+% пакеты для библиографии
+\usepackage{csquotes}
+\usepackage[backend=biber,bibencoding=utf8,sorting=none, language=russian,
+style=numeric]{biblatex}
+\addbibresource{bib_example.bib} % файл с библиографией
+
+%\renewcommand*{\mkgostheading}[1]{#1} % имя автора выводится не курсивом
+
+\newcommand{\uline}[1]{\underline{\hspace{#1}}} % пустое подчеркивание заданной длины
+\newcommand{\undline}[3]{\underset{\text{#1}}{\underline{\text{#2\hspace{#3}}}}} % поле с текстом внутри и под
+
+\begin{document}
+% Титульный лист
+\begin{titlepage}
+	\thispagestyle{empty}
+	\centering
+	\smallskip
+	\begin{center}
+		МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ\\
+		ФЕДЕРАЦИИ\\
+		федеральное государственное автономное образовательное учреждение\\
+		высшего образования\\
+		УРАЛЬСКИЙ ФЕДЕРАЛЬНЫЙ УНИВЕРСИТЕТ\\
+		имени первого Президента России Б.\,Н.~Ельцина\\*
+		\bigskip
+		ИНСТИТУТ ЕСТЕСТВЕННЫХ НАУК И МАТЕМАТИКИ\\
+		\vspace{2cm}
+		Кафедра математического анализа и теории функций\\
+	\end{center}
+	\vspace{1cm}
+	\centerline{\bf{ПОРЯДКОВЫЕ ОЦЕНКИ МУРЧАНИЯ КОТИКОВ}}
+	\centerline{\bf{В БАНАХОВЫХ КОТОПРОСТРАНСТВАХ}}
+	\bigskip
+	\centerline{Направление подготовки 01.03.01 <<Математика>>}
+	\vspace{3cm}
+	
+	\begin{tabular}{lcc}
+	    Зав. кафедрой & \hspace{1cm} & Выпускная квалификационная\\
+        к. ф.-м. н., доц. Р.\,Р. Старр & \hspace{1cm}  & работа бакалавра\\
+        & \hspace{1cm} &\\
+	   \makebox[6cm]{\hrulefill} & \hspace{1cm} & {\bf Маккартни}\\
+	    & \hspace{1cm} & {\bf Пола Джеймса}\\
+	    & \hspace{1cm} &\\
+	    & \hspace{1cm} & \makebox[6cm]{\hrulefill} \\
+	    & \hspace{1cm} &\\
+	    Нормоконтролер: & \hspace{1cm} & Научный руководитель:\\
+	    к. ф.-м. н., доц. Дж.\,Г. Харрисон & \hspace{1cm} & д. ф.-м. н., проф. Дж.\,У. Леннон  \\
+	    & \hspace{1cm} &\\
+	   \makebox[6cm]{\hrulefill} & \hspace{1cm} & \makebox[6cm]{\hrulefill} \\
+	\end{tabular}
+
+	\vfill
+	Екатеринбург  \\
+	2019
+\end{titlepage}
+
+\newpage
+% Индивидуальное задание
+% линии полей выровнены на глазок, предполагается распечатать и заполнить вручную, либо мучиться с коэффициентами выравнивания :)
+\thispagestyle{empty}
+	\smallskip
+	\begin{center}
+		МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ\\
+		ФЕДЕРАЦИИ\\
+		федеральное государственное автономное образовательное учреждение\\
+		высшего образования\\
+		УРАЛЬСКИЙ ФЕДЕРАЛЬНЫЙ УНИВЕРСИТЕТ\\
+		имени первого Президента России Б.\,Н.~Ельцина\\*
+		\bigskip
+		ИНСТИТУТ ЕСТЕСТВЕННЫХ НАУК И МАТЕМАТИКИ\\
+	\end{center}
+	\vspace{1cm}
+	\hfill
+	\begin{minipage}{0.5\textwidth}
+	\begin{center}
+	УТВЕРЖДАЮ\\
+	\bigskip
+	Руководитель образовательной программы\\
+	\bigskip
+	\uline{4.5cm}\,(\uline{3.3cm})
+	\end{center}
+	\begin{flushright}
+	<<\uline{1cm}>>\,\uline{3.7cm}\,20\uline{0.6cm}г.
+	\end{flushright}
+	\end{minipage}
+	\begin{flushleft}
+	\vspace{1.2cm}
+	Код, наименование направления: \uline{0.611\textwidth}\\
+	Наименование программы: \uline{0.682\textwidth}\\
+	Группа: \uline{0.35\textwidth}
+	\end{flushleft}
+	\bigskip
+	\begin{center}
+	{\bf ЗАДАНИЕ}\\
+	на выполнение выпускной квалификационной работы
+	\end{center}
+	\begin{flushleft}
+	студента $\undline{(Фамилия, имя, отчество)}{}{0.8912\textwidth}$\\
+	\vspace{0.5cm}
+	Квалификация: $\undline{(бакалавр, специалист, магситр)\hspace{1.2cm}}{}{0.812\textwidth}$\\
+	\vspace{0.5cm}
+	Провести научное исследование по теме: \underline{\hspace{0.525\textwidth}}\\ \medskip \underline{\hspace{\textwidth}}\\
+	\vspace{0.5cm}
+	Срок представления работы научному руководителю: <<\uline{1cm}>>\,\uline{3.33cm}\,20\uline{0.6cm}г.\\
+	\vspace{0.5cm}
+	Научный руководитель $\undline{(Подпись)}{}{0.35\textwidth}\;(\undline{(И.\,О. Фамилия)}{}{0.32\textwidth})$\\
+	\vspace{0.5cm}
+	Задание принял к исполнению $\undline{(Подпись)}{}{0.268\textwidth}$
+	\end{flushleft}
+\newpage
+
+\setcounter{page}{2}
+
+\centerline{\textbf{\Large{РЕФЕРАТ}}}
+\addcontentsline{toc}{section}{Реферат \rm \dotfill}
+\vspace{6mm}
+Маккартни П. Дж. ПОРЯДКОВЫЕ ОЦЕНКИ МУРЧАНИЯ КОТИКОВ В БАНАХОВЫХ КОТОПРОСТРАНСТВАХ, выпускная квалификационная работа бакалавра: стр.~25, рис.~2, библ.~9 назв.
+
+\vspace{6mm}
+Ключевые слова: КОТИКИ, КОТИКИ, КОТИКИ.
+
+\vspace{6mm}
+В данной работе \dots
+\newpage
+
+\centerline{\textbf{\Large{МЕСТО ВЫПОЛНЕНИЯ РАБОТЫ}}}
+\addcontentsline{toc}{section}{Место выполнения работы \rm \dotfill}
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\centerline{\textbf{\Large{ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}}}
+\addcontentsline{toc}{section}{Обозначения и сокращения \rm \dotfill}
+\begin{description}
+\item $\mathbb{N}=\{1,2,\ldots\}$ -- множество натуральных чисел;
+\end{description}
+\newpage
+
+\centerline{\textbf{\Large{ВВЕДЕНИЕ}}}
+\addcontentsline{toc}{section}{Введение \rm \dotfill}
+\newpage
+
+\centerline{\textbf{\Large{ОСНОВНАЯ ЧАСТЬ}}}
+\addcontentsline{toc}{section}{Основная часть \rm \dotfill}
+\newpage
+
+\centerline{\textbf{\Large{ЗАКЛЮЧЕНИЕ}}}
+\addcontentsline{toc}{section}{Заключение \rm \dotfill}
+\newpage
+
+\addcontentsline{toc}{section}{Список использованных источников \rm \dotfill}
+\renewcommand{\refname}{\centerline{\textbf{\large{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}}}} % "Список использованных источников и литературы"
+\printbibliography
+\cite{StatAndCats} % библиография не выведется, если не будет хотя бы одной ссылки
+\end{document}
