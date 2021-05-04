@@ -1,0 +1,306 @@
+%!TEX TS-program = xelatex
+
+% Этот шаблон документа разработан в 2014 году
+% Данилом Фёдоровых (danil@fedorovykh.ru) 
+% для использования в курсе 
+% <<Документы и презентации в \LaTeX>>, записанном НИУ ВШЭ
+% для Coursera.org: http://coursera.org/course/latex .
+% Исходная версия шаблона --- 
+% https://www.writelatex.com/coursera/latex/5.2.2
+
+\documentclass[a4paper,14pt]{extarticle}
+
+%%% Работа с русским языком
+\usepackage[english,russian]{babel}   %% загружает пакет многоязыковой вёрстки
+%\usepackage{fontspec}      %% подготавливает загрузку шрифтов Open Type, True Type и др.
+%%% Подготавливает загрузку шрифтов Open Type, True Type и др.
+\usepackage[euenc]{fontspec}
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  %% свойства шрифтов по умолчанию
+\setmainfont[Ligatures={TeX,Historic}]{Times New Roman} %% задаёт основной шрифт документа  %% Поставить потом CMU Serif
+%\setsansfont{Comic Sans MS}                    %% задаёт шрифт без засечек
+\setmonofont{Courier New}
+\usepackage{indentfirst}
+\frenchspacing
+
+\renewcommand{\epsilon}{\ensuremath{\varepsilon}}
+\renewcommand{\phi}{\ensuremath{\varphi}}
+\renewcommand{\kappa}{\ensuremath{\varkappa}}
+\renewcommand{\le}{\ensuremath{\leqslant}}
+\renewcommand{\leq}{\ensuremath{\leqslant}}
+\renewcommand{\ge}{\ensuremath{\geqslant}}
+\renewcommand{\geq}{\ensuremath{\geqslant}}
+\renewcommand{\emptyset}{\varnothing}
+
+% Убираем нумерацию section
+% \newcommand{\anonsection}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+%% Номера формул
+%\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+%\usepackage{leqno} % Нумерация формул слева
+
+%% Свои команды
+\DeclareMathOperator{\sgn}{\mathop{sgn}}
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%%% Работа с картинками
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}{images2/}}  % папки с картинками
+\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig} % Обтекание рисунков текстом
+
+%%% Подписи к картинкам и таблицам
+\usepackage[tableposition=top]{caption}
+\usepackage{subcaption}
+\DeclareCaptionLabelFormat{gostfigure}{Рисунок #2}
+\DeclareCaptionLabelFormat{gosttable}{Таблица #2}
+\DeclareCaptionLabelSeparator{gost}{~---~}
+\captionsetup{labelsep=gost}
+\captionsetup[figure]{labelformat=gostfigure}
+\captionsetup[table]{labelformat=gosttable}
+\renewcommand{\thesubfigure}{\asbuk{subfigure}}
+
+%%% Работа с таблицами
+\usepackage{array,tabularx,tabulary,booktabs} % Дополнительная работа с таблицами
+\usepackage{longtable}  % Длинные таблицы
+\usepackage{multirow} % Слияние строк в таблице
+
+%%% Теоремы
+\theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{proposition}[theorem]{Утверждение}
+ 
+\theoremstyle{definition} % "Определение"
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{problem}{Задача}[section]
+ 
+\theoremstyle{remark} % "Примечание"
+\newtheorem*{nonum}{Решение}
+
+%%% Программирование
+\usepackage{etoolbox} % логические операторы
+
+
+%%% Страница
+\usepackage{extsizes} % Возможность сделать 14-й шрифт
+\usepackage{geometry} % Простой способ задавать поля
+	\geometry{top=20mm}
+	\geometry{bottom=20mm}
+	\geometry{left=30mm}
+	\geometry{right=15mm}
+ %
+%\usepackage{fancyhdr} % Колонтитулы
+% 	\pagestyle{fancy}
+ 	%\renewcommand{\headrulewidth}{0pt}  % Толщина линейки, отчеркивающей верхний колонтитул
+% 	\lfoot{Нижний левый}
+% 	\rfoot{Нижний правый}
+% 	\rhead{Верхний правый}
+% 	\chead{Верхний в центре}
+% 	\lhead{Верхний левый}
+%	\cfoot{Нижний в центре} % По умолчанию здесь номер страницы
+
+\usepackage{setspace} % Интерлиньяж
+    \onehalfspacing % Интерлиньяж 1.5
+%\doublespacing % Интерлиньяж 2
+%\singlespacing % Интерлиньяж 1
+
+\usepackage{lastpage} % Узнать, сколько всего страниц в документе.
+
+\usepackage{soul} % Модификаторы начертания
+
+
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{				% Гиперссылки
+    unicode=true,           % русские буквы в раздела PDF
+    pdftitle={Заголовок},   % Заголовок
+    pdfauthor={Автор},      % Автор
+    pdfsubject={Тема},      % Тема
+    pdfcreator={Создатель}, % Создатель
+    pdfproducer={Производитель}, % Производитель
+    pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
+    colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
+    linkcolor=black,          % внутренние ссылки
+    citecolor=black,        % на библиографию
+    filecolor=black,      % на файлы
+    urlcolor=black           % на URL
+}
+
+\usepackage{csquotes} % Еще инструменты для ссылок
+
+%\usepackage[style=authoryear,maxcitenames=2,backend=biber,sorting=nty]{biblatex}
+
+\usepackage{multicol} % Несколько колонок
+
+\usepackage{tikz} % Работа с графикой
+\usepackage{pgfplots}
+% \usepackage{pgfplotstable}
+\pgfplotsset{compat=1.16}
+\usepackage{pdfpages} % include other pdf file
+\newcommand{\RNumb}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+%%% Управление нумерацией элементов
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{equation}{section}
+% \counterwithin{equation}{subsection}
+
+
+%%% Списки
+\usepackage{enumitem}
+\makeatletter
+    \AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
+\makeatother
+\setlist{nolistsep}
+\renewcommand{\labelitemi}{-}
+
+%%% Первый уровень нумерации -- буквы, второй -- цифры 
+\renewcommand{\labelenumi}{\asbuk{enumi})}
+\renewcommand{\labelenumii}{\arabic{enumii})}
+
+\usepackage[titles]{tocloft}
+\renewcommand{\cfttoctitlefont}{\normalfont\Large\bfseries\uppercase}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\newcommand{\likesectionheading}[1]{
+  \section*{\centering{#1}}
+}
+
+\newcommand{\likesection}[1]{
+  \likesectionheading{#1}
+  \addcontentsline{toc}{section}{{#1}}
+}
+
+\author{Баранов Иван}
+\title{Диплом}
+\date{\today}
+
+
+%\usepackage{cancel}
+%\usepackage{textcomp}
+%\usepackage{graphicx}
+%\usepackage{wrapfig}
+%\usepackage{array}
+%\usepackage{caption}
+%\linespread{1.3}
+%\setlength{\parindent}{5ex}
+
+\begin{document}
+
+\begin{center}
+	Формулы
+\end{center}
+Формулы разделяются на внутри текста и <<выключенные>> (то есть выделенные в отдельную строку). \newline
+Если используете в формуле десятичные дроби, в которых дробная часть отделена от целой с помощью запятой, то эту запятую следует взять в фигурные скобки (в противном случае после нее будет оставлен небольшой дополнительный пробел, что нежелательно).\newline
+\textbf{Все примеры использования формул смотри в исходном коде!}\newline
+С фигурными скобками
+$$
+	\pi\approx 3{,}14
+$$
+Без фигурных скобок
+$$
+	\pi\approx 3,14
+$$
+
+Для скобок в выражениях удобно использовать конструкцию \textsc{\textbackslash left} перед открывающейся скобокой и \textsc{\textbackslash right} перед закрывающейся скобкой. \newline
+
+Использование команды \textsc{\textbackslash mid} определяет вертикальную черточку, рассматриваемую как знак бинарного отношения. Пример использования
+\begin{equation*}
+	M=\{\,x\in A\mid x>0\, \}
+\end{equation*}
+
+При записи отображений нужно использовать не двоеточие, а команду \textsc{\textbackslash colon}
+\begin{equation*}
+	f\colon X\to Y
+\end{equation*}
+
+Так как в стандартном комплекте Latex'a нет обозначений для отечественной литературы тригонометрических функций, то требуется подключить пакет \textsc{amsmath}. После чего добавить в преамбулу такую строчку
+\begin{center}
+	\textsc{\textbackslash DeclareMathOperator\{\textbackslash tg\}\{tg\}}
+\end{center}
+
+НУМЕРАЦИЯ ФОРМУЛ
+
+Для того, чтобы нумеровать формулы, надо писать формулы как окружение \textsc{equation} и использовать команду \textsc{\textbackslash label}. После этого команда \textbf{\textbackslash ref} будет генерировать номер формулы (без скобок). Чтобы сразу использовать скобки, достаточно подключить пакет \textsc{amsmath} и использовать команду \textsc{\textbackslash eqref}. Также можно использовать команжу \textsc{\textbackslash pageref}, тогда на печати получится не номер формулы, а номер страницы, на которую попала эта формула.\newline
+Можно не автоматически генерировать нумерацию формул, а делать это самостоятельно. Для этого при написании формул в двойных доларах нужно использовать команду \textsc{\textbackslash eqno (1.1)}
+
+ПЕРЕНОСЫ В ФОРМУЛАХ
+
+При необходимости можно переносить часть внутритекстовой формулы на другую строчку. Такие переносы возможны после знаков <<бинарных отношений>> или <<бинарных операций>>. Для этого можно использовать одну из двух преамбул:\newline
+\textbf{\textbackslash binoppenalty=10000} - запретит все разрывы строк после знаков бинарных операций\newline
+\textbf{\textbackslash relpenalty=10000} - запретит все разрывы строк после знаков бинарных отношений, и при этом помех верстке абзаца будет меньше, чем при заключении всей формулы в фигурные скобки.
+
+ВКЛЮЧЕНИЕ ТЕКСТА В ФОРМУЛЫ
+
+В математическую формулу можно включить фрагмент обычного текста с помощью команды \textsc{\textbackslash mbox}. В этой команде используется сразу команда \textsc{\textbackslash qquad}
+
+ФОРМУЛА В РАМОЧКЕ
+
+Если подключить пакет \textbf{amsmath}, то формулу можно взять в рамочку с помощью команды \textsc{\textbackslash boxed}
+\begin{equation*}
+	\boxed{x=2}
+\end{equation*}
+
+Использование команды \textsc{\textbackslash substack} пакета amsmath
+\begin{equation*}
+	\sum_{\substack{i\in[0;n]\\j\in [0,m]}} a_{ij}
+\end{equation*}
+
+МНОГОСТРОЧНЫЕ ВЫКЛЮЧНЫЕ ФОРМУЛЫ
+
+1. Использовать окружение \textsc{multiline}\newline
+2. Использовать окружение \textsc{gather}\newline
+3. Если нужно напечатать один или несколько выровненных столбцов формул, то нужно использовать окружение \textsc{align}
+\begin{align*}
+	7\times 9 & =63 & 63:9&=7\\
+	9\times10 & =90 & 90:10& =9
+\end{align*}
+Использование текста в окружении \textit{cases}
+\begin{equation*}
+	|x|=
+	\begin{cases}
+		x,&\text{если $x>0$;}\\
+		0,&\text{если $x=0$;}\\
+		-x,&\text{если $x<0$;}
+	\end{cases}
+\end{equation*}
+
+СМЕНА ШРИФТОВ В ФОРМУЛЕ
+
+По умолчанию все латинские буквы в формулах набираются курсивом.\newline
+Для того, чтобы набирать жирным шрифтом, надо воспользоваться командой \textsc{\textbackslash mathbf}
+\begin{equation*}
+	\mathbf P^n
+\end{equation*}
+Команда \textsc{\textbackslash mathcal}, вызывающая <<каллигрофический>> шрифт, можно применять только к прописным латинским буквам.
+
+Если подключить стилевой пакет \textsc{amsfonts} или \textsc{amssymb}
+
+\begin{center}
+	Изображения/графика
+\end{center}
+
+ПЛАВАЮЩИЕ ИЛЛЮСТРАЦИИ
+
+Чтобы разместить в тексте иллюстрацию, удобно воспользоваться окружением \textit{figure}. Команда \textbf{\textbackslash caption} позволяет сделать подрисуночную подпись. Также есть команда \textbf{\textbackslash label}.
+
+Окружение \textit{figure} может принимать аргумент в квадратных скобках:\newline
+1. \textbf{t} - разместить иллюстрацию в верхней части страницы.\newline
+2. \textbf{b} - разместить иллюстрацию в нижней части страницы.\newline
+3. \textbf{p} - разместить иллюстрацию на отдельной странице, целиком состоящей из <<плавающих>> иллюстраций (или таблиц).\newline
+4. \textbf{h} - разместить иллюстрацию прямо там, где она встетилась в исходном тексте, не перенося ее никуда.\newline
+Можно в этот аргумент задавать сразу несколько параметров: \textit{\textbackslash begin\{figure\}[tbp]}
+
+РИСУНКИ В ОБОРКУ
+
+Окружения figure и table определяют иллюстрацию и таблицы, простирающие на всю ширину текста. Для того, чтобы сдлеать иллюстрацию с обтеканием текста, необходимо использовать пакет \textit{wrapfig}. Тогда, чтобы задать изображение, необходимо воспользоваться окружением \textit{wrapfigure}.\newline
+Окружение wrapfigure имеет два обязательных аргумента. Первый из них указывает, как должен расположен рисунок относительно текста, а второй - ширину рисунка.\newline
+Также окружение wrapfigure принимает необязательный аргумент, ставящийся перед первым обязательным, указывающий количество укороченных строк: \textit{\textbackslash \{wrapfigure\}[14]\{o\}\{60pt\}}. Имейте в виду, что при таких расчетах любая выключная формула считается за три строки.
+
+\end{document}

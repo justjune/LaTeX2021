@@ -4,10 +4,9 @@
 \contentsline {section}{{Постановка задачи}}{5}{section*.5}%
 \contentsline {section}{\numberline {1}Способы теоретических исследований}{6}{section.1}%
 \contentsline {subsection}{\numberline {1.1}1 раздел}{6}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}2 раздел}{7}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Способы аналитических исследований}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}1 раздел}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}2 раздел}{9}{subsection.2.2}%
-\contentsline {section}{{Заключение}}{10}{section*.6}%
-\contentsline {section}{Список литературы}{11}{section*.7}%
-\contentsline {section}{Приложение}{12}{section*.8}%
+\contentsline {subsection}{\numberline {1.2}2 раздел}{9}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Способы аналитических исследований}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}1 раздел}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}2 раздел}{11}{subsection.2.2}%
+\contentsline {section}{{Заключение}}{12}{section*.6}%
+\contentsline {section}{Приложение}{14}{section*.8}%
