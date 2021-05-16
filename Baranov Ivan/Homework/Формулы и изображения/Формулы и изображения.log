@@ -1,7 +1,7 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.4.10)  23 APR 2021 16:59
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.3) (preloaded format=xelatex 2021.4.10)  30 APR 2021 12:59
 entering extended mode
-**./TemplateUrFU.tex
-(TemplateUrFU.tex
+**"./Формулы и изображения.tex"
+(Формулы и изображения.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18>
 (C:\Users\Dedalus\AppData\Local\Programs\MiKTeX\tex/latex/extsizes\extarticle.c
@@ -1382,8 +1382,8 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'russian'.
- (TemplateUrFU.aux)
-\openout1 = `TemplateUrFU.aux'.
+ (Формулы и изображения.aux)
+\openout1 = `"Формулы и изображения.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 194.
 LaTeX Font Info:    ... okay on input line 194.
@@ -1549,9 +1549,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 194.
 LaTeX Info: Redefining \pageref on input line 194.
 LaTeX Info: Redefining \nameref on input line 194.
- (TemplateUrFU.out) (TemplateUrFU.out)
+ (Формулы и изображения.out) (Формулы и изображения.out)
 \@outlinefile=\write4
-\openout4 = `TemplateUrFU.out'.
+\openout4 = `"Формулы и изображения.out"'.
 
 
 Package pgfplots notification 'compat/show suggested version=true': you might b
@@ -1568,44 +1568,43 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
 
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 209
+LaTeX Font Info:    Trying to load font information for U+msa on input line 203
 .
 (C:\Users\Dedalus\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 209
+LaTeX Font Info:    Trying to load font information for U+msb on input line 203
 .
 
 (C:\Users\Dedalus\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (0.17953pt too wide) in paragraph at lines 209--214
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
+
+ []
+
+
+Overfull \hbox (2.79733pt too wide) in paragraph at lines 213--214
+[]\EU1/TimesNewRoman(0)/m/n/14.4 Использование команды \EU1/TimesNewRoman(0)/m/
+sc/14.4 \mid \EU1/TimesNewRoman(0)/m/n/14.4 определяет вертикальную черточку, р
+ассмат-
  []
 
 [1
 
-] [1] [1] (TemplateUrFU.toc)
-\tf@toc=\write5
-\openout5 = `TemplateUrFU.toc'.
-
- [2] [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 283--284
-
+] [2]
+Overfull \hbox (13.30675pt too wide) in paragraph at lines 293--299
+\EU1/TimesNewRoman(0)/m/n/14.4 Можно в этот аргумент задавать сразу несколько п
+араметров: \EU1/TimesNewRoman(0)/m/it/14.4 \begin{figure}[tbp] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
-
+Overfull \hbox (4.69112pt too wide) in paragraph at lines 302--305
+\EU1/TimesNewRoman(0)/m/n/14.4 ся перед первым обязательным, указывающий количе
+ство укороченных строк:
  []
 
-[6] [7] [8] [9]
-Overfull \hbox (15.5427pt too wide) in paragraph at lines 376--377
-[]\EU1/TimesNewRoman(0)/b/n/14.4 Способы и методы решения задачи \EU1/TimesNewR
-oman(0)/m/n/14.4 (для экспериментальных и инженерно-
- []
-
-[10] [11] [12] [13]
+[3]
 
 Package caption Warning: Unused \captionsetup[figure] on input line 66.
 See the caption package documentation for explanation.
@@ -1616,17 +1615,18 @@ See the caption package documentation for explanation.
 
 
 AED: lastpage setting LastPage
-[14] (TemplateUrFU.aux)
-Package rerunfilecheck Info: File `TemplateUrFU.out' has not changed.
-(rerunfilecheck)             Checksum: 018A7612A0056CF1EB44C3FDACCC7905;1876.
+[4] (Формулы и изображения.aux)
+Package rerunfilecheck Info: File `"Формулы и изображения".out' has not changed
+.
+(rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 41296 strings out of 411722
- 918203 string characters out of 2836313
- 1429673 words of memory out of 3000000
- 60641 multiletter control sequences out of 15000+600000
- 407635 words of font info for 79 fonts, out of 8000000 for 9000
+ 41283 strings out of 411722
+ 918173 string characters out of 2836313
+ 1431684 words of memory out of 3000000
+ 60631 multiletter control sequences out of 15000+600000
+ 407627 words of font info for 78 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 113i,14n,116p,735b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 113i,14n,116p,746b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on TemplateUrFU.pdf (16 pages).
+Output written on Формулы и изображения.pdf (4 pages).
