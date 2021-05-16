@@ -1,0 +1,225 @@
+%!TEX TS-program = xelatex
+\documentclass[a4paper, 12pt]{article}
+
+%%% Работа с русским языком
+\usepackage[english,russian]{babel}   %% загружает пакет многоязыковой вёрстки
+\usepackage{fontspec}      %% подготавливает загрузку шрифтов Open Type, True Type и др.
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  %% свойства шрифтов по умолчанию
+\setmainfont[Ligatures={TeX,Historic}]{Times New Roman} %% задаёт основной шрифт документа
+\setsansfont{Comic Sans MS}                    %% задаёт шрифт без засечек
+\setmonofont{Courier New}
+\usepackage{indentfirst}
+\frenchspacing
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath, amsfonts, amssymb, mathtools, amsthm}	%AMS
+\usepackage{icomma}	% умная запятая: 
+
+%%% Номер формул
+%\mathtoolsset{showonlyrefs=true}	% показывать номера только у тех формул, на %которые есть \eqref{} в тексте
+%\usepackage{leqno}	% Нумерация формул слева
+
+%%% Шрифты
+\usepackage{euscript}	% шрифт Евклид
+\usepackage{mathrsfs}	% красивый матшрифт
+
+%%% Свои команды
+\DeclareMathOperator{\sgn}{\mathop{sgn}}
+
+%%% Перенос знаков в формулах по Львовскому
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%%% Работа с картинками
+\usepackage{graphics}	% для вставки рисунков
+\graphicspath{{images/}{images2/}}	% папки с картинками
+\setlength\fboxsep{3pt}	% отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt}	% толщина линии рамки \fbox{}
+\usepackage{wrapfig}	% обтекание рисунков и таблиц текстом
+
+%%% Работа с таблицами
+\usepackage{array, tabularx, tabulary, booktabs}	% Доп работа с таблицами
+\usepackage{longtable}	% длинные таблицы
+\usepackage{multirow}	% слияние строк в таблице
+
+%%% Теоремы
+\theoremstyle{plain} % это стиль по умолчанию, его можно не переопределять
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{proposition}[theorem]{Утверждение}
+
+\theoremstyle{definition}	% определение
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{problem}{Задача}[section]
+
+\theoremstyle{remark}	% примечание
+\newtheorem*{nonum}{Решение}
+
+%%% Программирование
+\usepackage{etoolbox}	% логические операторы
+
+%%% Страница
+\usepackage{extsizes}	% возможность сделать 14-ый шрифт
+\usepackage{geometry}	% простой способ задавать поля
+	\geometry{top=25mm}
+	\geometry{bottom=35mm}
+	\geometry{left=35mm}
+	\geometry{right=20mm}
+	
+\usepackage{fancyhdr}	% Колонтикулы
+	\pagestyle{fancy}
+	%\renewcommand{\headrulewidth}{0pt} % Толщина линейки, отчеркивающий верхний колонтикул
+	\lfoot{Нижний левый}
+	\rfoot{Нижний правый}
+	\rhead{Верхний правый}
+	\chead{Верхний в центре}
+	\lhead{Верхний левый}
+	% \cfoot{Нижний в центре} % по умолчанию здесь номер страницы
+	
+\usepackage{setspace}	% Интерлиньяж
+\onehalfspacing % интерлиньяж 1.5
+%\doublespacing % Интерлиньяж 2
+%\singlespacing	% Интерлиньяж 1
+
+\usepackage{lastpage} % Узнать, сколько всего страниц в документе.
+
+\usepackage{soul}	% Модификаторы начертания
+
+\usepackage{hyperref}
+\usepackage[usenames, dvipsnames, svgnames, table, rgb]{xcolor}
+\hypersetup{ % Гиперссылки
+	unicode=true, % русские буквы в разделах PDF
+	pdftitle={Заголовок}, % Заголовок
+	pdfauthor={Автор}, % Автор
+	pdfsubject={Тема}, % Тема
+	pdfcreator={Создатель}, % Создатель
+	pdfproducer={Производитель}, % Производитель
+	pdfkeywords={keyword1}{key2}{key3}, % Ключевые слова
+	colorlinks=true, % false: ссылки в рамках, true: цветные ссылки
+	linkcolor=blue, % внутренние ссылки
+	citecolor=green, % на библиографию
+	filecolor=magenta, % на файлы
+	urlcolor=cyan % на URL
+}
+
+%\renewcommand{\familydefault}{\stdefault} % начертание шрифта (то есть без засечек)
+
+%\usepackage{cite} % Работа с библиографией (не совместим с biblatex)
+\usepackage{csquotes} % Еще инструменты для ссылок
+
+\usepackage[backend=biber, bibencoding=utf8, sorting=nty, maxcitenames=2, style=authoryear]{biblatex} % работа с biblatex
+\addbibresource{bib1.bib}
+
+%\renewcommand{\refname}{Список литературы} % По умолчанию "Списко литературы" (article)
+%\renewcommand{\bibname}{Литература} % По умолчанию "Литература" (book и report)
+
+\usepackage{multicol} % несколько колонок
+
+%%% Рисование графиков
+\usepackage{tikz} % работа с графикой
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+%%% Заголовок
+\author{\LaTeX{} в Вышке}
+\title{Название проекта}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	
+	
+	\section{Первый раздел} \label{sec:fs}
+	\subsection{Подраздел}
+	Этот подраздел находится в разделе \ref{sec:fs}
+	
+	\section{Нюансы работы с формулами}
+	
+	\subsection{Дроби}
+	
+	\[\frac{3}{6}=0,5\]
+	
+	\subsection{Скобки}
+	
+	\[\left( 2+\frac{9}{3}\right) \times 5=25\]
+	
+	\subsection{Стандартные функции}
+	
+	\[\sin x=5\]
+	
+	\subsection{Диакритические знаки}
+	
+	Это знаки, которые расположены над или под
+	
+	\[\bar{x}=5\]
+	
+	\section{Формулы в несколько строк}
+	
+	\subsection{Очень длинные формулы}
+	
+	\begin{multline}
+	1+2+3+4+5+6+7+\dots+\\+ 50+51+52+53+54+55+56+57+\dots+\\+ 96+97+98+99+100=5050
+	\end{multline}
+
+	\subsection{Несколько команд}
+	
+	\begin{align}
+		&2\time 2=4\\
+		&3\times 3=9
+	\end{align}
+
+	\begin{equation}
+	\begin{aligned}
+		&2\time 2=4\\
+		&3\times 3=9
+	\end{aligned}	
+	\end{equation}
+
+	\subsection{Системы уравнений}
+	
+	\[
+	\left\{
+	\begin{aligned}
+		&2\time 2=4\\
+		&3\times 3=9
+	\end{aligned}
+	\right.
+	\]
+	
+	\[
+	|x|=
+	\begin{cases}
+		x, &\text{если } x \ge 0\\
+		-x, &\text{если } x < 0
+	\end{cases}
+	\]
+	
+	\section{Теоремы}
+	
+	\begin{theorem}[Простое название]
+		авоыплоывтп
+	\end{theorem}
+
+	\section{Графика}
+	
+	\begin{tikzpicture}
+		\draw[->] (0,0,0) -- (2,0,0) node[right] {$y$};
+		\draw[->] (0,0,0) -- (0,2,0) node[above] {$z$};
+		\draw[->] (0,0,0) -- (0,0,2) node[above] {$x$};
+	\end{tikzpicture}
+
+	\begin{tikzpicture}
+		\draw[green] (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
+	\end{tikzpicture}
+
+	\section{Библиография biblatex}
+	Смотри статью \cite{бухгольц2013основной}
+	\printbibliography
+	
+	
+	
+	
+	
+	
+	
+\end{document}
