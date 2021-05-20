@@ -8,7 +8,9 @@ Changed ".gitignore"
 ### Fork dedalus-3 (Baranov Ivan)
 In order to compile the code at startup, you need to specify XeLaTeX.
 
-Tasks:
-1. Customize the title page
+Added the ability to compile directly in XeLaTeX. This feature does not work in all editors!
 
-2. Correct the bibliography
+Tasks:
+1. Change the location of the section.
+
+2. Change the location of the subsection/subsubsection.
