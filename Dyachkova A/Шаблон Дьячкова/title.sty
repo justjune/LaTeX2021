@@ -1,0 +1,102 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{title}[2021/05/21 Шаблон титульного листа УрФУ]
+
+%\RequirePackage[numberbottom]{eskdplain}
+\RequirePackage{tabularx}
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.2\hsize}X}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+
+\def\@institute{ИНСТИТУТ ЕСТЕСТВЕННЫХ НАУК И МАТЕМАТИКИ}
+\newcommand{\institut}[1]{
+	\def\@institut{#1}
+}
+
+\def\@chair{Департамент математики, механики и компьютерных наук}
+\newcommand{\chair}[1]{
+	\def\@chair{#1}
+}
+
+\def\@thesis{ТЕМА ДИПЛОМНОЙ РАБОТЫ}
+\newcommand{\thesis}[1]{
+	\def\@thesis{#1}
+}
+
+\def\@direction{Направление подготовки 01.03.03 <<Механика и математическое моделирование>>}
+\newcommand{\direction}[1]{
+	\def\@direction{#1}
+}
+
+\def\@DepartamentDirector{Директор департамента:}
+\newcommand{\DepartamentDirector}[1]{
+	\def\@DepartamentDirector{#1}
+}
+
+\def\@NameDepartamentDirector{к. ф.\,м. н., доц. И.\,И.\,Иванова}
+\newcommand{\NameDepartamentDirector}[1]{
+	\def\@NameDepartamentDirector{#1}
+}
+
+\def\@SurnameStudent{Иванова}
+\newcommand{\SurnameStudent}[1]{
+	\def\@SurnameStudent{#1}
+}
+
+\def\@FirstMiddlenameStudent{Ивана Ивановича}
+\newcommand{\FirstMiddlenameStudent}[1]{
+	\def\@FirstMiddlenameStudent{#1}
+}
+
+\def\@normocontroller{И.\,И.\,Иванова}
+\newcommand{\normocontroller}[1]{
+	\def\@normocontroller{#1}
+}
+
+\def\@ScientificAdviser{к. ф.\,-м. н., доц. И.\,И.\,Иванов}
+\newcommand{\ScientificAdviser}[1]{
+	\def\@ScientificAdviser{#1}
+}
+
+\renewcommand{\@date}{2020}
+
+\renewcommand{\@maketitle}{%
+	\centering
+	МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ\\
+	федеральное государственное автономное образовательное учреждение высшего образования\\
+	УРАЛЬСКИЙ ФЕДЕРАЛЬНЫЙ УНИВЕРСИТЕТ\\
+	имени первого Президента России Б.\,Н.\,Ельцина\\
+	\vspace{1cm}
+	\@institute \\
+	\vspace{2cm}
+	\@chair \\
+	\vspace{1cm}
+	\textbf{\@thesis}\\
+	\vspace{.8cm}
+	\@direction
+	\vspace{1.5cm}
+	\begin{table}[h]
+		\begin{tabularx}{\textwidth}{bsb}
+			\@DepartamentDirector &  & Выпускная калификационная\\
+			\@NameDepartamentDirector &  & работа бакалавра \\
+		\end{tabularx}
+		\begin{tabularx}{\textwidth}{bsY}
+			&  & {\textbf{\@author}}
+		\end{tabularx}
+		\begin{tabularx}{\textwidth}{bsb}
+			&  & \\
+			\makebox[\linewidth]{\hrulefill} &  & \makebox[\linewidth]{\hrulefill}\\
+			Нормоконтролер: &  & Научный руководитель:\\
+			\@normocontroller &  & \@ScientificAdviser \\
+			\\
+			\makebox[\linewidth]{\hrulefill} &  & \makebox[\linewidth]{\hrulefill}
+		\end{tabularx}
+	\end{table}
+
+	\vfill
+	Екатеринбург\\
+	\@date
+	\par
+	\thispagestyle{empty}
+	\newpage
+}
