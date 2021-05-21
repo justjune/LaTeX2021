@@ -1,12 +1,13 @@
 \babel@toc {russian}{}
-\contentsline {section}{{Обозначения и сокращения}}{4}{section*.4}%
-\contentsline {section}{{Введение}}{5}{section*.5}%
-\contentsline {section}{{Постановка задачи}}{6}{section*.6}%
-\contentsline {section}{\numberline {1}Способы теоретических исследований}{7}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Название подраздела}{7}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Название следующего подраздела}{8}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Способы аналитических исследований}{9}{section.2}%
-\contentsline {subsection}{\numberline {2.1}1 подраздел}{9}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}2 подраздел}{10}{subsection.2.2}%
-\contentsline {section}{{Заключение}}{11}{section*.7}%
-\contentsline {section}{{Приложение}}{13}{section*.9}%
+\contentsline {section}{{ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}}{5}{table.caption.1}%
+\contentsline {section}{{ВВЕДЕНИЕ}}{6}{table.caption.1}%
+\contentsline {section}{{ПОСТАНОВКА ЗАДАЧИ}}{7}{table.caption.1}%
+\contentsline {section}{\numberline {1}\centering {Способы теоретических исследований}}{8}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Название подраздела}{8}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Название под-подраздела}{8}{subsubsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}Название следующего подраздела}{9}{subsection.1.2}%
+\contentsline {section}{\numberline {2}\centering {Способы аналитических исследований}}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}1 подраздел}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}2 подраздел}{11}{subsection.2.2}%
+\contentsline {section}{{ЗАКЛЮЧЕНИЕ}}{12}{subsection.2.2}%
+\contentsline {section}{{ПРИЛОЖЕНИЕ}}{14}{subsection.2.2}%

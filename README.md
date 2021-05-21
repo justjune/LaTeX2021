@@ -10,7 +10,5 @@ In order to compile the code at startup, you need to specify XeLaTeX.
 
 Added the ability to compile directly in XeLaTeX. This feature does not work in all editors!
 
-Tasks:
-1. Change the location of the section.
-
-2. Change the location of the subsection/subsubsection.
+Questions:
+1. Do I need to write "MAIN PART"? And in seсtion you have to write with capital letters?
