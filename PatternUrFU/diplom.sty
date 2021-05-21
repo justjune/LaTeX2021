@@ -1,0 +1,137 @@
+% База
+\RequirePackage[T2A]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english,russian]{babel}
+
+% Разметка страницы
+\RequirePackage[a4paper,left=3cm, right=1.5cm, top=2cm, bottom=2cm,includefoot]{geometry}
+\RequirePackage{indentfirst} % красная строка в начале всего текста
+\RequirePackage{setspace}
+\onehalfspacing % полуторный межстрочный интервал
+\setlength{\parindent}{1.25cm} % абзацный отступ
+
+% Правильные разделители в обозначениях картинок
+\RequirePackage{caption}
+\captionsetup[figure]{name=Рисунок,labelsep=endash}
+
+% Правильные разделители раздела и страницы в содержании
+\RequirePackage[titles]{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% Библиография
+% Для прикрепления файла библиографии, в основном файле написать \addbibresource{filename.bib}
+\RequirePackage{csquotes}
+\RequirePackage[backend=biber,bibencoding=utf8, style=gost-numeric]{biblatex}
+
+% Гиперссылки
+\RequirePackage{hyperref}
+
+% Главные разделы диплома с центрированием, без номера, с присутствием в содержании
+\newcommand\sect[1]{
+	\phantomsection	
+	\addcontentsline{toc}{section}{#1}
+	\begin{center}
+	\textbf{\Large{#1}}
+	\end{center}
+	\par
+}
+
+% Правильное написание содержания и библиографии
+\addto{\captionsrussian}{\renewcommand*{\contentsname}{СОДЕРЖАНИЕ}}
+\defbibheading{bibliography}[\bibname]{
+	\sect{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ И ЛИТЕРАТУРЫ}
+}
+
+\def\@maketitle{
+%\small
+\thispagestyle{empty}
+\centering
+\smallskip
+\begin{center}
+	МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ \\
+	РОССИЙСКОЙ ФЕДЕРАЦИИ \\
+	Федеральное Государственное Автономное Образовательное Учреждение \\
+	Высшего Образования \\
+	УРАЛЬСКИЙ ФЕДЕРАЛЬНЫЙ УНИВЕРСИТЕТ\\
+	имени первого Президента России Б.\,Н.~Ельцина \\
+	\bigskip
+	ИНСТИТУТ ЕСТЕСТВЕННЫХ НАУК И МАТЕМАТИКИ\\
+	\vspace{2cm}
+	Кафедра \@dep \\
+\end{center}
+\vspace{1cm}
+%\begin{center}
+%	\textbf{\@title}
+%\end{center}
+\centerline{\textbf{\@title}}
+\bigskip
+%\begin{center}
+%	Направление подготовки \@progcode \ <<\@progname>>
+%\end{center}
+\centerline{Направление подготовки \@progcode \ <<\@progname>>}
+\vspace{3cm}
+
+\begin{tabular}{lcc}
+	Зав. кафедрой & \hspace{0.5cm} & Выпускная квалификационная \\
+	{\@headtit}, \@headpos \ \@headname & \hspace{0.5cm}  & работа \@level \\
+	& \hspace{0.5cm} &\\
+	\makebox[6cm]{\hrulefill} & \hspace{0.5cm} & \textbf{\@surname}\\
+	& \hspace{0.5cm} & \textbf{\@nameandfather}\\
+	& \hspace{0.5cm} &\\
+	& \hspace{0.5cm} & \makebox[6cm]{\hrulefill} \\
+	& \hspace{0.5cm} &\\
+	Нормоконтролер: & \hspace{0.5cm} & Научный руководитель: \\
+	{\@controltit}, \@controlpos \ \@controlname & \hspace{0.5cm} & \@directortit , \@directorpos \ \@directorname\\
+	& \hspace{1cm} &\\
+	\makebox[6cm]{\hrulefill} & \hspace{0.5cm} & \makebox[6cm]{\hrulefill} \\
+\end{tabular}
+
+\vfill
+Екатеринбург \\
+\@year
+\newpage
+}
+
+\renewcommand{\year}[1]{
+\newcommand\@year{#1}
+}
+
+\newcommand{\dep}[1]{
+\newcommand\@dep{#1}
+}
+
+\newcommand{\level}[1]{
+\newcommand\@level{#1}
+}
+
+\renewcommand{\title}[1]{
+\renewcommand\@title{#1}
+}
+
+\newcommand{\me}[2]{
+\newcommand\@surname{#1}
+\newcommand\@nameandfather{#2}
+}
+
+\newcommand{\head}[3]{
+\newcommand\@headtit{#1}
+\newcommand\@headpos{#2}
+\newcommand\@headname{#3}
+}
+
+\newcommand{\control}[3]{
+\newcommand\@controltit{#1}
+\newcommand\@controlpos{#2}
+\newcommand\@controlname{#3}
+}
+
+\newcommand{\director}[3]{
+\newcommand\@directortit{#1}
+\newcommand\@directorpos{#2}
+\newcommand\@directorname{#3}
+}
+
+\newcommand{\prog}[2]{
+\newcommand\@progcode{#1}
+\newcommand\@progname{#2}
+}
