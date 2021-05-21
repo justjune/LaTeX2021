@@ -1,0 +1,87 @@
+%!TEX TS-program = xelatex
+
+\documentclass[russian]{beamer}
+
+% Поддержка русского языка
+\usepackage{cmap}	% поиск в PDF
+\usepackage[T2A]{fontenc}		% кодировка
+\usepackage[english, russian]{babel}	% локализация и переносы
+\usepackage[utf8]{inputenc}	% кодировка исходного текста
+\usepackage{mathtext}	% русские буквы в формулах
+\usepackage{indentfirst}	% красная строка отбивка
+\frenchspacing
+\usepackage{fontspec}	% подгатавливает загрузку шрифтов Open Type, True Type и др.
+\defaultfontfeatures{Ligatures={TeX}, Renderer=Basic}	%% свойство шрифтов по умолчанию
+\setmainfont[Ligatures={TeX, Historic}]{Times New Roman}	%% задает основной шрифт документа
+\setsansfont{Times New Roman}	%% задает шрифт без засечек
+\setmonofont{Courier New}
+
+
+% Переопределение греческих символов для русского языка
+% ensuremath нужна для того, если ты не пишешь в $, то автоматически подставит $-ы
+\renewcommand{\epsilon}{\ensuremath{\varepsilon}}
+\renewcommand{\phi}{\ensuremath{\varphi}}
+\renewcommand{\kappa}{\ensuremath{\varkappa}}
+\renewcommand{\le}{\ensuremath{\leqslant}}
+\renewcommand{\leq}{\ensuremath{\leqslant}}
+\renewcommand{\ge}{\ensuremath{\geqslant}}
+\renewcommand{\geq}{\ensuremath{\geqslant}}
+\renewcommand{\emptyset}{\ensuremath{\varnothing}}
+
+\usepackage{amssymb, amsfonts, amsmath, mathtext}
+\usepackage{graphicx}
+
+\usetheme{Madrid}
+%\usefonttheme{professionalfonts}
+\usefonttheme[onlymath]{serif}
+
+\title{Тема докалада}
+\author{Дьячкова~\,А.\,В}
+\institute{Уральский Федеральный Университет имени первого президента России Б.\,Н.\,Ельцина}
+\date{Екатеринбург, 2022}
+
+\begin{document}
+
+\begin{frame}
+	\maketitle
+	\setcounter{framenumber}{0}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Содержание}
+	\tableofcontents
+\end{frame}
+
+\section{Формулы}
+\begin{frame}
+\frametitle{\insertsection}
+\begin{block}{Темы}
+Список тем и цветовой палитры для beamer можно найти на ресурсе:\newline
+\href{https://hartwork.org/beamer-theme-matrix/}{https://hartwork.org/beamer-theme-matrix/}
+\end{block}
+Для формул возможен вариант использования \textsc{\textbackslash displaystyle}, чтобы формулы не сжимались и были хорошо восприняты глазом.\newline
+Просто ввести эту команду в \textsc{\$} перед написанием формулы
+$$
+	x^2=0
+$$
+Также можно использовать оверлеи, анимацию и звук.\newline
+Теперь вставим 2 формулы в ряд\newline
+\begin{center}
+\begin{tabular}{cc}
+$x^2=0$ & $y=x^2$
+\end{tabular}
+\end{center}
+\end{frame}
+
+\section{Текст}
+\begin{frame}
+	\frametitle{\insertsection}
+	Стандартные сокращения пишутся через команды: \textsc{т.\textbackslash:д.} и если существует предлог <<и>>, тогда через команду \textsc{и$\sim$ т.\textbackslash:д.}\newline
+Чтобы правильно ставить тире, нужно писать так: \textsc{"---}. Здесь тройное тире.\newline
+\textsf{Текст без засечек}\newline
+\texttt{Моноширинный}\newline
+\fontspec{Arial}{Изменили шрифт для этого предложения на ходу}\newline
+\fontspec{Arial Narrow}{Еще другой взяли шрифт}
+\end{frame}
+
+\end{document}

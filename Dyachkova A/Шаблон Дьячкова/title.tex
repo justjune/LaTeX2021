@@ -1,0 +1,282 @@
+%!TEX TS-program = xelatex
+
+\documentclass[a4paper,14pt]{extarticle}
+
+\usepackage{cmap} % Поиск по PDF
+\usepackage{title} % Свой стилевой пакет для переопределения титульного листа
+
+\usepackage[english,russian]{babel}
+%%% Страница
+\usepackage{extsizes} % Возможность сделать 14-й шрифт
+\usepackage{geometry}
+	\geometry{top=20mm}
+	\geometry{bottom=20mm}
+	\geometry{left=30mm}
+	\geometry{right=15mm}
+\setlength{\parindent}{1cm}
+
+\usepackage[euenc]{fontspec}
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  %% свойства шрифтов по умолчанию
+\setmainfont[Ligatures={TeX,Historic}]{Times New Roman} %% задаёт основной шрифт
+\setmonofont{Courier New}
+\usepackage{indentfirst}
+\frenchspacing
+
+\renewcommand{\epsilon}{\ensuremath{\varepsilon}}
+\renewcommand{\phi}{\ensuremath{\varphi}}
+\renewcommand{\kappa}{\ensuremath{\varkappa}}
+\renewcommand{\le}{\ensuremath{\leqslant}}
+\renewcommand{\leq}{\ensuremath{\leqslant}}
+\renewcommand{\ge}{\ensuremath{\geqslant}}
+\renewcommand{\geq}{\ensuremath{\geqslant}}
+\renewcommand{\emptyset}{\varnothing}
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%%% Работа с картинками
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}{images2/}}  % папки с картинками
+\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig} % Обтекание рисунков текстом
+
+%%% Подписи к картинкам и таблицам
+\usepackage[tableposition=top]{caption}
+\usepackage{subcaption}
+\DeclareCaptionLabelFormat{gostfigure}{Рисунок #2}
+\DeclareCaptionLabelFormat{gosttable}{Таблица #2}
+\DeclareCaptionLabelSeparator{gost}{~---~}
+\captionsetup{labelsep=gost}
+\captionsetup[figure]{labelformat=gostfigure}
+\captionsetup[table]{labelformat=gosttable}
+\renewcommand{\thesubfigure}{\asbuk{subfigure}}
+
+%%% Работа с таблицами
+\usepackage{array,tabularx,tabulary,booktabs} % Дополнительная работа с таблицами
+\usepackage{longtable}  % Длинные таблицы
+\usepackage{multirow} % Слияние строк в таблице
+
+%%% Теоремы
+\theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{proposition}[theorem]{Утверждение}
+
+\theoremstyle{definition} % "Определение"
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem{problem}{Задача}[section]
+
+\theoremstyle{remark} % "Примечание"
+\newtheorem*{nonum}{Решение}
+
+%%% Программирование
+\usepackage{etoolbox} % логические операторы
+
+\usepackage{setspace} % Интерлиньяж
+\onehalfspacing % Интерлиньяж 1.5
+%\doublespacing % Интерлиньяж 2
+%\singlespacing % Интерлиньяж 1
+
+\usepackage{lastpage} % Узнать, сколько всего страниц в документе.
+
+\usepackage{soul} % Модификаторы начертания
+
+
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{				% Гиперссылки
+	unicode=true,           % русские буквы в раздела PDF
+	pdftitle={Заголовок},   % Заголовок
+	pdfauthor={Автор},      % Автор
+	pdfsubject={Тема},      % Тема
+	pdfcreator={Создатель}, % Создатель
+	pdfproducer={Производитель}, % Производитель
+	pdfkeywords={keyword1} {key2} {key3}, % Ключевые слова
+	colorlinks=true,       	% false: ссылки в рамках; true: цветные ссылки
+	linkcolor=blue,          % внутренние ссылки
+	citecolor=blue,        % на библиографию
+	filecolor=black,      % на файлы
+	urlcolor=black           % на URL
+}
+
+%%% Работа с библиографией
+\usepackage{cite}
+\usepackage{csquotes} % Еще инструменты для ссылок
+
+%\usepackage[style=authoryear,maxcitenames=2,backend=biber,sorting=nty]{biblatex}
+
+\usepackage{multicol} % Несколько колонок
+
+\usepackage{tikz} % Работа с графикой
+\usepackage{pgfplots}
+% \usepackage{pgfplotstable}
+\pgfplotsset{compat=1.16}
+\usepackage{pdfpages} % include other pdf file
+\newcommand{\RNumb}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+%%% Управление нумерацией элементов
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{equation}{section}
+% \counterwithin{equation}{subsection}
+
+
+%%% Списки
+\usepackage{enumitem}
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
+\makeatother
+\setlist{nolistsep}
+\renewcommand{\labelitemi}{-}
+
+%%% Первый уровень нумерации -- буквы, второй -- цифры 
+\renewcommand{\labelenumi}{\asbuk{enumi})}
+\renewcommand{\labelenumii}{\arabic{enumii})}
+
+\usepackage[titles]{tocloft}
+\renewcommand{\cfttoctitlefont}{\normalfont\Large\bfseries\uppercase}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\newcommand{\likesectionheading}[1]{
+	\section*{\centering{#1}}
+}
+
+\newcommand{\likesection}[1]{
+	\likesectionheading{#1}
+	\addcontentsline{toc}{section}{{#1}}
+}
+
+%\makeatletter
+%\renewcommand{\@seccntformat}[1]{}
+%\makeatother
+
+%%% Настройка section (чтобы не нумеровалась), все остальное нумеровалось
+\makeatletter
+\DeclareRobustCommand{\@seccntformat}[1]{
+	\def\temp@@a{#1}%
+	\def\temp@@b{section}%
+	\ifx\temp@@a\temp@@b
+	\else
+	\csname the#1\endcsname\quad%
+	\fi
+	
+}
+\makeatother
+
+
+%%% Section по центру
+\newcommand{\sectioncenter}[1]{
+	\section{\centering{#1}}
+}
+%%% Subsection/subsubsection с отступов в абзацный отступ
+\usepackage{titlesec}
+\titlespacing{\subsection}{\parindent}{\parskip}{-\parskip}
+\titlespacing{\subsubsection}{\parindent}{\parskip}{-\parskip}
+
+%%% РАБОТА С ТИТУЛЬНЫМ ЛИСТОМ
+%\institute{ИНСТИТУТ ЕСТЕСТВЕННЫХ НАУК И МАТЕМАТИКИ}
+%\chair{Департамент математики, механики и компьютерных наук}
+%\thesis{ТЕМА ДИПЛОМНОЙ РАБОТЫ}
+%\direction{Направление подготовки 01.03.03 <<Механика и математическое моделирование>>}
+%\DepartamentDirector{Директор департамента:}
+\NameDepartamentDirector{к. ф.\,м. н., доц. А.\,А.\,Смирнов}
+\normocontroller{О.\,И.\,Вовк}
+\ScientificAdviser{к.~ф.\,-м.~н., доц. Н.\,В.\,Бурмашева}
+\date{2022}
+\author{Дьячковой Анастасии Викторовны}
+
+\begin{document}
+\maketitle
+
+% РЕФЕРАТ
+\likesectionheading{РЕФЕРАТ}
+Содержащий общую информацию о характере проведенного исследования, полученных результатов и общей структуре рукописи на русском (для бакалавров) и русском и английском (для специалистов и магистров) языке. Реферат выполняется в соответствии с ГОСТ 7.9-95\newline
+Имя Фамилия Отчество, <<Тема выпускной квалификационной работы>>, работа содержит: стр. N, рис. M, библ. 4 назв.
+
+Ключевые слова: слова ключевые.
+
+Объект исследования: исследования объект.
+
+Цель работы: работы цель.
+
+% МЕСТО ВЫПОЛНЕНИЯ РАБОТЫ
+\newpage
+\likesectionheading{МЕСТО ВЫПОЛНЕНИЯ РАБОТЫ}
+
+%СОДЕРЖАНИЕ
+\newpage
+\renewcommand{\contentsname}{\centering{СОДЕРЖАНИЕ}}
+\tableofcontents{}
+
+%Обозначения и сокращения
+\newpage
+\likesection{ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
+\begin{description}
+	\item[$m$]-- масса
+	\item[$W$] -- градиент скорости
+\end{description}
+
+
+%Введение
+\newpage
+\likesection{ВВЕДЕНИЕ}
+Обосновывающее тему; актуальность решаемой научной задачи и место представляемой работы в ее решении; связь с предыдущими исследованиями.
+
+%Постановка задачи
+\newpage
+\likesection{ПОСТАНОВКА ЗАДАЧИ}
+Для работ, выполняемых по направлениям <<Биология>>, <<Экология и природопользование>> раздел <<Постановка задачи>> не выделяется, а включается в раздел <<Введение>>.
+
+% Способы и методы теоретических и аналитических исследований
+\newpage
+\sectioncenter{Способы теоретических исследований}
+(Для теоретических и аналитических работ). Раздел должен содержать обоснование и подробную пошаговую реализацию примененного теоретического и/или аналитического метода. Описание метода должно обеспечивать возможность независимого воспроизведения результатов, полученных в работе.
+\subsection{Название подраздела}
+Для того, чтобы использовать список литературы, нужно указать следующую команду: ~\cite{Buhgolz}.
+\begin{verbatim}
+	~\cite{Buhgolz}
+\end{verbatim}
+Теперь посмотрим на $\backslash subsubsection$.
+\subsubsection{Название под-подраздела}
+Умные предложения, великолепный \LaTeX
+
+
+
+
+\newpage
+\subsection{Название следующего подраздела}
+
+\newpage
+\sectioncenter{Способы аналитических исследований}
+\textbf{Способы и методы решения задачи} (для экспериментальных и инженерно-практических задач). Раздел должен содержать обоснование и подробную пошаговую реализацию примененного метода решения задачи квалификационной работы. Описание метода должно обеспечивать возможность независимого воспроизведения результатов, полученных в работе.
+\subsection{1 подраздел}
+\newpage
+\subsection{2 подраздел}
+
+%Заключение
+\newpage
+\likesection{ЗАКЛЮЧЕНИЕ}
+Отражающее основные результаты представленной работы.
+
+%Список литературы
+\newpage
+%\section*{Список литературы}
+%\addcontentsline{toc}{section}{Список литературы}
+\renewcommand{\refname}{\centering{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ И ЛИТЕРАТУРЫ}}
+\begin{thebibliography}{99}
+	\bibitem{Buhgolz}
+	Дж.\, Нильсен. Аэродинамика управляемых снарядов. - М.: Государственное научно-техническое издательство ОБОРОНГИЗ, 1962 - 475 с. с илл.
+\end{thebibliography}
+
+
+% Приложение
+\newpage
+\likesection{ПРИЛОЖЕНИЕ}
+Выпускная работа при необходимости может содержать ПРИЛОЖЕНИЯ, в которые следует помещать большие массивы первичной экспериментальной информации, детальные методики проведения этапов работы, текстовые коды компьютерных программ, созданные автором при выполнении работы и другие экспериментальные и вспомогательные данные, обсуждаемые в тексте работы. В основном тексте работы должны быть ссылки и описание информации всех приложений.
+
+Работа должна обязательно содержать все, непосредственно используемые для получения результатов и выводов, экспериментальные данные либо в графическом виде, либо в табличной форме.
+\end{document}
